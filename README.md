@@ -110,6 +110,7 @@ Method	Endpoint	Description
 GET	/products	Retrieve available products
 POST	/orders	Create a new order
 GET	/orders	Retrieve placed orders
+
 🗄️ DynamoDB Tables
 ShopSphereProducts
 
@@ -142,6 +143,7 @@ Quantity
 Total price
 Order status
 Order date
+
 📬 Order Processing
 
 When a customer places an order:
@@ -168,6 +170,7 @@ Stores the order in DynamoDB.
 Sends the order message to SQS.
 Publishes an order notification to SNS.
 Returns the order information to the frontend.
+
 🔐 Security
 
 The Lambda function uses an IAM execution role with service-specific
@@ -256,6 +259,7 @@ shopsphere-aws/
     ├── security.md
     ├── cost.md
     └── cleanup.md
+
 🧪 Testing
 
 The following functionality has been tested successfully:
@@ -273,6 +277,7 @@ SQS order messaging
 SNS notification publishing
 GET /orders
 Orders page displaying DynamoDB data
+
 🚫 CloudFront Status
 
 Amazon CloudFront was initially planned for the project but was not
@@ -306,6 +311,7 @@ Asynchronous JavaScript and fetch()
 Cloud security and least-privilege access
 AWS cost awareness
 Application troubleshooting
+
 🚀 Project Status
 🟢 Completed
 
@@ -326,6 +332,7 @@ CloudWatch
 Orders API
 Orders page
 Project documentation
+
 📖 Documentation
 
 Additional project documentation is available in the docs directory:
@@ -334,6 +341,7 @@ Deployment Guide
 Security Documentation
 Cost Documentation
 Cleanup Guide
+
 🏁 Conclusion
 
 ShopSphere demonstrates a practical serverless e-commerce architecture using
