@@ -57,7 +57,7 @@ data, process order messages and publish notifications.
 
 ## 🏗️ Architecture
 
-![ShopSphere AWS Architecture](architecture/Architecture.png)
+![ShopSphere AWS Architecture](Architecture.png)
 
 The final deployed architecture is:
 
