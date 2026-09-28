@@ -241,7 +241,7 @@ shopsphere-aws/
 ├── architecture/
 │   └── Architecture.png
 │
-├── frontend/
+├── Frontend/
 │   ├── index.html
 │   ├── products.html
 │   ├── cart.html
