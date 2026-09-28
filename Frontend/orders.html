@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopSphere - Orders</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ShopSphere 🛒</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="orders.html">Orders</a>
+        <a href="cart.html">
+            <button id="cartButton">
+                Cart (<span id="cartCount">0</span>)
+            </button>
+        </a>
+    </nav>
+</header>
+
+<main>
+    <section id="products">
+        <h2>My Orders</h2>
+
+        <div id="ordersList">
+            <p>Loading orders...</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <p>© 2026 ShopSphere | Cloud-Native E-Commerce Platform on AWS</p>
+</footer>
+
+<script src="app.js"></script>
+
+<script>
+    const ORDERS_API_URL =
+        "https://2irkh852hj.execute-api.ap-south-1.amazonaws.com/orders";
+
+    async function loadOrders() {
+        const ordersList = document.getElementById("ordersList");
+
+        try {
+            const response = await fetch(ORDERS_API_URL);
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.message || "Failed to load orders");
+            }
+
+            const orders = result.orders || [];
+
+            if (orders.length === 0) {
+                ordersList.innerHTML = `
+                    <div class="product-card">
+                        <h3>No orders yet</h3>
+                        <p>Your placed orders will appear here.</p>
+
+                        <a href="products.html">
+                            <button>Browse Products</button>
+                        </a>
+                    </div>
+                `;
+
+                return;
+            }
+
+            ordersList.innerHTML = "";
+
+            orders.reverse().forEach(order => {
+                const totalPrice = Number(order.totalPrice || 0);
+
+                const formattedDate = order.orderDate
+                    ? new Date(order.orderDate).toLocaleString("en-IN")
+                    : "Not available";
+
+                ordersList.innerHTML += `
+                    <div class="product-card order-card">
+
+                        <h3>${order.productName}</h3>
+
+                        <p>
+                            <strong>Order ID:</strong>
+                            ${order.orderId}
+                        </p>
+
+                        <p>
+                            <strong>Product ID:</strong>
+                            ${order.productId}
+                        </p>
+
+                        <p>
+                            <strong>Quantity:</strong>
+                            ${order.quantity}
+                        </p>
+
+                        <p>
+                            <strong>Total Price:</strong>
+                            ₹${totalPrice.toLocaleString("en-IN")}
+                        </p>
+
+                        <p>
+                            <strong>Status:</strong>
+                            ${order.status}
+                        </p>
+
+                        <p>
+                            <strong>Order Date:</strong>
+                            ${formattedDate}
+                        </p>
+
+                    </div>
+                `;
+            });
+
+        } catch (error) {
+            console.error("Orders Error:", error);
+
+            ordersList.innerHTML = `
+                <div class="product-card">
+                    <h3>Unable to load orders</h3>
+                    <p>Please refresh the page and try again.</p>
+                </div>
+            `;
+        }
+    }
+
+    loadOrders();
+</script>
+
+</body>
+</html>

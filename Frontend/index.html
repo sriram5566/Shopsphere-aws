@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopSphere - Online Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">ShopSphere 🛒</div>
+
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="products.html">Products</a>
+            <a href="orders.html">Orders</a>
+            <a href="cart.html">
+            <button id="cartButton">
+                Cart (<span id="cartCount">0</span>)
+            </button>
+            </a>
+        </nav>
+    </header>
+
+    <main>
+
+        <section class="hero">
+            <h1>Welcome to ShopSphere</h1>
+            <p>Everything you need, all in one place.</p>
+            <button onclick="scrollToProducts()">Shop Now</button>
+        </section>
+
+        <section id="products">
+            <h2>Featured Products</h2>
+
+            <div class="product-grid">
+
+                <div class="product-card">
+                    <div class="product-image">💻</div>
+                    <h3>Wireless Laptop</h3>
+                    <p>Powerful laptop for work and entertainment.</p>
+                    <strong>₹65,000</strong>
+                    <button onclick="addToCart('Wireless Laptop', 65000)">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">🎧</div>
+                    <h3>Noise Cancelling Headphones</h3>
+                    <p>Enjoy immersive sound anywhere.</p>
+                    <strong>₹5,999</strong>
+                    <button onclick="addToCart('Noise Cancelling Headphones', 5999)">
+                        Add to Cart
+                    </button>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">⌚</div>
+                    <h3>Smart Watch</h3>
+                    <p>Track your day with a modern smartwatch.</p>
+                    <strong>₹3,499</strong>
+                    <button onclick="addToCart('Smart Watch', 3499)">
+                        Add to Cart
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2026 ShopSphere | shopsphere.com</p>
+    </footer>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

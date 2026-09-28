@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ShopSphere - Cart</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="logo">ShopSphere 🛒</div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="products.html">Products</a>
+        <a href="orders.html">Orders</a>
+
+        <a href="cart.html">
+            <button id="cartButton">
+                Cart (<span id="cartCount">0</span>)
+            </button>
+        </a>
+    </nav>
+</header>
+
+<main>
+
+    <section id="products">
+
+        <h2>Your Shopping Cart</h2>
+
+        <div id="cartItems" class="cart-container"></div>
+
+        <div class="cart-summary">
+
+            <h3>
+                Total: ₹<span id="cartTotal">0</span>
+            </h3>
+
+            <button
+                id="placeOrderButton"
+                onclick="placeOrder()">
+                Place Order
+            </button>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 ShopSphere | Cloud-Native E-Commerce Platform on AWS</p>
+</footer>
+
+<script src="app.js"></script>
+
+</body>
+</html>
